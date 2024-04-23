@@ -1,10 +1,5 @@
 @import './fonts.scss';
 
-.btn-buy {
-    --bs-btn-bg: #9CAFB8;
-    --bs-btn-border-color: transparent;
-}
-
 .header-search-btn{
     border-top-right-radius: $input-border-radius;
     border-bottom-right-radius: $input-border-radius;
@@ -13,19 +8,4 @@
 .product-box{
     background-color: var(--bs-card-bg);
     border-radius: var(--bs-card-border-radius);
-    color: var(--bs-card-color);
-
-    .product-name, .product-price{
-        color: var(--bs-card-color);   
-    }
-}
-
-.breadcrumb a{
-    color: var(--bs-primary);
-    &hover{
-        color: var(--bs-secondary)
-    }
-}
-.breadcrumb a.is-active{
-    color: var(--bs-primary);
 }
