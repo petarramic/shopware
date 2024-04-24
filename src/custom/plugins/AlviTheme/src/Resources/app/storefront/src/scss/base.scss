@@ -9,3 +9,19 @@
     background-color: var(--bs-card-bg);
     border-radius: var(--bs-card-border-radius);
 }
+
+.footer-main {
+    border-top: none;
+    background-color: #DDE6E8;
+}
+
+.payment-method{
+    border-radius: 20px;
+    background-color: gray;
+    min-height: 80px;
+}
+
+.footer-bottom{
+    background: $primary;
+    color: white;
+}
