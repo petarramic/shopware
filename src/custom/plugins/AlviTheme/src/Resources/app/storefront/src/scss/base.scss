@@ -17,11 +17,15 @@
 
 .payment-method{
     border-radius: 20px;
-    background-color: gray;
-    min-height: 80px;
+    background-color: #D9D9D9;
+    min-height: 60px;
 }
 
 .footer-bottom{
     background: $primary;
+    color: white;
+}
+
+.footer-btn {
     color: white;
 }
