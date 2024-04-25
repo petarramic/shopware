@@ -1,11 +1,11 @@
 {
     "footer": {
-      "serviceHeadline": "Service",
-      "legalHeadline": "Legal",
       "contactHeadline": "Contact",
       "paymentHeadline": "Payments",
       "socialMediaHeadline": "Social Media",
       "newsletterSubscribe": "Subscribe",
-      "bottomInfo": "ALVI® All prices exclude VAT and shipping costs and, if applicable, cash on delivery fees, unless otherwise stated"
+      "contactAddress": "<div>ALVI GMBH</div><div>Pfennigbreite 44</div><div>DE-37671 Höxter</div>",
+      "serviceContactText": "webshop@alvi.de",
+      "copyrightInfo": "ALVI®"
     }
   }
