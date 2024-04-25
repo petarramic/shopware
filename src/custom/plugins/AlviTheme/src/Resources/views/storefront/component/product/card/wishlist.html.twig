@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/component/product/card/wishlist.html.twig' %}
+
+{% block component_product_wishlist_icon %}
+	{% sw_icon 'heart-fill' style { class: 'wishlist icon-wishlist-added', size: size } %}
+	{# {% sw_icon 'heart' style {class: 'wishlist icon-wishlist-not-added', size: size } %} #}
+    <img src="{{ asset('bundles/alvitheme/heart_love.svg', 'asset') }}" class="wishlist icon-wishlist-not-added">
+
+	{% if showText %}
+		<span class="product-wishlist-btn-content product-wishlist-btn-content-{{ size }}">
+			{{ 'listing.addToWishlist'|trans|sw_sanitize }}
+		</span>
+	{% endif %}
+{% endblock %}

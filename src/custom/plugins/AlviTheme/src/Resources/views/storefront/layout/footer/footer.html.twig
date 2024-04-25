@@ -28,53 +28,9 @@
 							{% endblock %}
 						</div>
 					{% endblock %}
-					{% block layout_footer_navigation_columns %}
-						{% for root in page.footer.navigation.tree %}
-							{% block layout_footer_navigation_column %}
-								<div class="col-md-3 d-flex flex-column gap-3 order-last order-md-1">
-									{% block layout_footer_navigation_information_headline %}
-										{% if root.category.type == 'folder' %}
-											<h1 classname="footer-column-headline">{{ root.category.translated.name }}</h1>
-										{% else %}
-											<h1 classname="footer-column-headline">
-												<a href="{{ category_url(root.category) }}" {% if category_linknewtab(root.category) %} target="_blank" {% endif %} title="{{ root.category.translated.name }}">
-													{{ root.category.translated.name }}
-												</a>
-											</h1>
-										{% endif %}
-									{% endblock %}
-									{% block layout_footer_navigation_information_content %}
-										<div class="footer-column-content">
-											<div class="d-flex flex-column gap-1">
-												{% block layout_footer_navigation_information_links %}
-													<ul class="list-unstyled">
-														{% for treeItem in root.children %}
-															{% set category = treeItem.category %}
-															{% set name = category.translated.name %}
-
-															{% block layout_footer_navigation_information_link_item %}
-																<li class="footer-link-item">
-																	{% block layout_footer_navigation_information_link %}
-																		{% if category.type == 'folder' %}
-																			<div>{{ name }}</div>
-																		{% else %}
-																			<a class="footer-link" href="{{ category_url(category) }}" {% if category_linknewtab(category) %} target="_blank" {% endif %} title="{{ name }}">
-																				{{ name }}
-																			</a>
-																		{% endif %}
-																	{% endblock %}
-																</li>
-															{% endblock %}
-														{% endfor %}
-													</ul>
-												{% endblock %}
-											</div>
-										</div>
-									{% endblock %}
-								</div>
-							{% endblock %}
-						{% endfor %}
-					{% endblock %}
+					
+					{% sw_include '@Storefront/storefront/layout/footer/footer-navigation.html.twig' %}
+					
 					{% block layout_footer_navigation_hotline %}
 						<div class="col-md-3 d-flex flex-column gap-3 order-2 order-md-1">
 							{% block layout_footer_navigation_hotline_headline %}
