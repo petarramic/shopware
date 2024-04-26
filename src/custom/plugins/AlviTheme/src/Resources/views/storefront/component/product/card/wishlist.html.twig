@@ -2,7 +2,6 @@
 
 {% block component_product_wishlist_icon %}
 	{% sw_icon 'heart-fill' style { class: 'wishlist icon-wishlist-added', size: size } %}
-	{# {% sw_icon 'heart' style {class: 'wishlist icon-wishlist-not-added', size: size } %} #}
     <img src="{{ asset('bundles/alvitheme/heart_love.svg', 'asset') }}" class="wishlist icon-wishlist-not-added">
 
 	{% if showText %}
