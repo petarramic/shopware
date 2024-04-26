@@ -3,6 +3,7 @@
 .header-search-btn{
     border-top-right-radius: $input-border-radius;
     border-bottom-right-radius: $input-border-radius;
+    border: 0;
 }
 
 .product-box{
@@ -72,4 +73,35 @@
         background: $secondary;
         clip-path: path("M5.16423 5.39729C13.028 -1.53759 24.0016 -2.45434 33.7785 7.54858C42.6139 16.5883 42.807 27.0411 33.9518 34.8503C25.0966 42.6596 15.8517 40.3184 8.55218 32.8502C1.25267 25.3819 -2.69952 12.3322 5.16423 5.39729Z");
     }
+}
+
+.header-cart-total{
+    font-family: $display-font-family;
+    font-weight: 400;
+}
+
+.header-search-input{
+    height: 40px;
+    border: 0;
+}
+
+@include media-breakpoint-up(sm) {
+    .header-cart-badge {
+        display: block;
+    }
+}
+
+.header-cart-btn {
+    overflow: visible;
+}
+
+.header-cart .header-cart-badge, .header-wishlist .header-wishlist-badge{
+  right: -15px;
+  top: -10px;
+  background: #002855;
+  clip-path: path("M2.33863 3.32944C6.70541 0.36551 12.3197 -2.14876 17.0561 2.83311C21.3364 7.33525 20.8377 15.3313 16.2848 17.9983C11.7319 20.6652 6.63813 20.9229 3.10188 17.2034C-0.434375 13.4839 -1.28866 5.79144 2.33863 3.32944Z");
+  font-family: $display-font-family;
+  font-weight: 400;
+  width: 12px;
+  font-size: small;
 }
