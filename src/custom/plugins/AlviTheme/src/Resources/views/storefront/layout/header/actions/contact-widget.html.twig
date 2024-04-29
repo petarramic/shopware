@@ -1,0 +1,27 @@
+{% block layout_header_actions_contact_widget %}
+	{% if position is empty %}
+		{% set position = 'top-bar' %}
+	{% endif %}
+	{% if page.header.currencies.count > 1 %}
+		<button class="btn top-bar-nav-btn" type="button" id="serviceDropdown-{{ position }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			{% block layout_header_actions_contact_widget_dropdown_toggle_name %}
+				<span class="top-bar-nav-text">{{ 'header.contact'|trans|sw_sanitize }}</span>
+				<img src="{{ asset('bundles/alvitheme/arrowdown.svg', 'asset') }}">
+			{% endblock %}
+		</button>
+		{% block layout_header_actions_contact_widget_form_items %}
+			<div class="top-bar-list dropdown-menu dropdown-menu-end" aria-labelledby="serviceDropdown-{{ position }}">
+				<div class="top-bar-list-item dropdown-item">
+					<div class="footer-column-content-inner">
+						{{ 'footer.contactAddress'|trans|sw_sanitize }}
+					</div>
+					<div class="footer-contact-form">
+						{{ 'footer.serviceContactText'|trans({
+                                        '%url%': path('frontend.cms.page', { id: config('core.basicInformation.contactPage') })
+                                    })|raw }}
+					</div>
+				</div>
+			</div>
+		{% endblock %}
+	{% endif %}
+{% endblock %}

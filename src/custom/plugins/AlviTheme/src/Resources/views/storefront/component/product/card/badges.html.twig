@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/component/product/card/badges.html.twig' %}
+
+{% block component_product_badges_new %}
+    {% if product.isNew %}
+        <div>
+            <span class="badge bg-success badge-new">{{ 'listing.boxLabelNew'|trans|sw_sanitize }}</span>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% block layout_footer_service_menu %}
+	<div class="col-md-3 d-flex flex-column gap-3 order-last order-md-1">
+		{% block layout_footer_service_hotline_headline %}
+			<h1 classname="footer-column-headline">
+				{{ 'footer.serviceHeadline'|trans|sw_sanitize }}
+			</h1>
+		{% endblock %}
+
+		{% block layout_footer_service_menu_content %}
+			<div class="footer-column-content">
+				<ul class="d-flex flex-column gap-1 list-unstyled">
+					{% for serviceMenuItem in page.header.serviceMenu %}
+						{% block layout_footer_service_menu_item %}
+							<li class="footer-service-menu-item">
+								<a class="footer-service-menu-link" href="{{ category_url(serviceMenuItem) }}" {% if category_linknewtab(serviceMenuItem) %} target="_blank" {% endif %} title="{{ serviceMenuItem.translated.name }}">
+									{{ serviceMenuItem.translated.name }}
+								</a>
+							</li>
+						{% endblock %}
+					{% endfor %}
+				</ul>
+			</div>
+		{% endblock %}
+	</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% sw_extends '@Storefront/storefront/layout/header/top-bar.html.twig' %}
+
+
+{% block layout_header_top_bar %}
+	<div class="container">
+		<div class="top-bar">
+			{% block layout_header_top_bar_inner %}
+				<nav class="top-bar-nav">
+					{% block layout_header_top_bar_info %}
+						<div class="d-flex flex-row gap-4">
+							<div class="d-flex flex-row align-items-center gap-2">
+								<img src="{{ asset('bundles/alvitheme/delivery.svg', 'asset') }}">
+								{{ 'header.freeShipping'|trans|sw_sanitize }}
+							</div>
+							<div class="d-flex flex-row align-items-center gap-2">
+								<img src="{{ asset('bundles/alvitheme/lightning.svg', 'asset') }}">
+								{{ 'header.fastDelivery'|trans|sw_sanitize }}
+							</div>
+							<div class="d-flex flex-row align-items-center gap-2">
+								<img src="{{ asset('bundles/alvitheme/return.svg', 'asset') }}">
+								{{ 'header.freeReturn'|trans|sw_sanitize }}
+							</div>
+						</div>
+					{% endblock %}
+					{% if page.header.languages.count > 1 or page.header.currencies.count > 1 or not feature('ACCESSIBILITY_TWEAKS') %}
+						<div class="d-flex flex-row align-items-center gap-4">
+							<div>
+								{{ 'header.magazine'|trans|sw_sanitize}}
+							</div>
+							{% sw_include '@Storefront/storefront/layout/header/actions/contact-widget.html.twig' %}
+							{% sw_include '@Storefront/storefront/layout/header/actions/service-widget.html.twig' %}
+							{{ block('layout_header_top_bar_language') }}
+							{{ block('layout_header_top_bar_currency') }}
+						</div>
+					{% endif %}
+				</nav>
+			{% endblock %}
+		</div>
+	</div>
+{% endblock %}

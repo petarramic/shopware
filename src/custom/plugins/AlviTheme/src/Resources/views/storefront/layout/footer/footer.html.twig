@@ -1,0 +1,118 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+
+{% block layout_footer_inner_container %}
+	<footer class="px-2 py-5 p-md-5 d-flex flex-column mx-md-5 justify-items-center">
+		<div class="container d-flex flex-column gap-5">
+			{% block layout_footer_logo %}
+				<div class="col-12 col-lg-auto d-flex justify-content-center">
+					{% sw_include '@Storefront/storefront/layout/header/logo.html.twig' %}
+				</div>
+			{% endblock %}
+			{% block layout_footer_navigation %}
+				<div id="footerColumns" class="row footer-columns gy-5" data-collapse-footer-columns="true" role="list">
+					{% block layout_footer_newsletter %}
+						<div class="col-md-3 d-flex flex-column gap-3 order-1 order-md-1">
+							<h1 classname="footer-column-headline">{{ 'footer.newsletterHeadline'|trans|sw_sanitize }}</h1>
+							{% block layout_footer_newsletter_input %}
+								<input type="email" name="newsletter" class="form-control" autocomplete="off" autocapitalize="off" placeholder="{{ 'footer.newsletterInput'|trans|sw_sanitize }}" aria-label="{{ 'footer.newsletterInput'|trans|sw_sanitize }}"/>
+							{% endblock %}
+							{% block layout_footer_newsletter_submit %}
+								<button type="submit" class="btn btn-primary footer-btn">{{ 'footer.newsletterSubscribe'|trans|sw_sanitize }}</button>
+							{% endblock %}
+
+							{% block layout_footer_newsletter_agreement %}
+								<div class="d-flex gap-3">
+									<input type="checkbox" class="form-check-input" id="newsletter-agreement" name="newsletter-agreement"/>
+									<label class="form-label" for="newsletter-agreement">{{ 'footer.newsletter'|trans|sw_sanitize }}</label>
+								</div>
+							{% endblock %}
+						</div>
+					{% endblock %}
+					
+					{% sw_include '@Storefront/storefront/layout/footer/footer-service.html.twig' %}
+					{% sw_include '@Storefront/storefront/layout/footer/footer-navigation.html.twig' %}
+					
+
+					{% block layout_footer_navigation_hotline %}
+						<div class="col-md-3 d-flex flex-column gap-3 order-2 order-md-1">
+							{% block layout_footer_navigation_hotline_headline %}
+								<h1 classname="footer-column-headline">
+									{{ 'footer.contactHeadline'|trans|sw_sanitize }}
+								</h1>
+							{% endblock %}
+
+							{% block layout_footer_navigation_hotline_content %}
+								<div class="footer-contact">
+									<div class="footer-column-content-inner">
+										{{ 'footer.contactAddress'|trans|sw_sanitize }}
+									</div>
+									<div class="footer-contact-form">
+										{{ 'footer.serviceContactText'|trans({
+                                        '%url%': path('frontend.cms.page', { id: config('core.basicInformation.contactPage') })
+                                    })|raw }}
+									</div>
+								</div>
+							{% endblock %}
+						</div>
+					{% endblock %}
+					{% block layout_footer_payment_logos %}
+						<div class="col-md-3 d-flex flex-column gap-3 order-last order-md-1">
+							<h1 classname="footer-column-headline">{{ 'footer.paymentHeadline'|trans|sw_sanitize }}</h1>
+							<div class="row g-3">
+								{% for paymentMethod in page.salesChannelPaymentMethods %}
+									{% block layout_footer_payment_logo %}
+										{% if paymentMethod.media %}
+											<div class="is-payment col-4">
+												{% sw_thumbnails 'footer-payment-image-thumbnails' with { media: paymentMethod.media, sizes: { default: '100px' }, attributes: { class: 'footer-logo-image', alt: paymentMethod.media.translated.alt ? : paymentMethod.translated.name, title: paymentMethod.media.translated.title ? : paymentMethod.translated.name } } %}
+											</div>
+										{% endif %}
+									{% endblock %}
+								{% endfor %}
+							</div>
+						</div>
+					{% endblock %}
+					{% block layout_footer_social_media %}
+						<div class="col-md-9 d-flex flex-column gap-3 ps-md-5 order-3 order-md-1">
+							<h1 classname="footer-column-headline">{{ 'footer.socialMediaHeadline'|trans|sw_sanitize }}</h1>
+							{% block layout_footer_social_media_list %}
+								<div class="d-flex gap-3">
+									<div class="">
+										<img src="{{ asset('bundles/alvitheme/instagram.svg', 'asset') }}">
+									</div>
+									<div class="">
+										<img src="{{ asset('bundles/alvitheme/facebook.svg', 'asset') }}">
+									</div>
+								</div>
+							{% endblock %}
+						</div>
+					{% endblock %}
+				</div>
+			{% endblock %}
+		</div>
+	</footer>
+	{% block layout_footer_bottom %}
+		<div class="footer-bottom text-md-center">
+			{% block layout_footer_copyright %}
+				<span class="footer-copyright">
+					{{ 'footer.copyrightInfo'|trans|sw_sanitize }}
+				</span>
+			{% endblock %}
+
+			{% block layout_footer_vat %}
+				{% if showVatNotice or showVatNotice is not defined %}
+					<span class="footer-vat">
+						{% if context.taxState == 'gross' %}
+							{{ 'footer.includeVatText'|trans({
+                                '%url%': path('frontend.cms.page', { id: config('core.basicInformation.shippingPaymentInfoPage') })
+                            })|raw }}
+						{% else %}
+							{{ 'footer.excludeVatText'|trans({
+                                '%url%': path('frontend.cms.page', { id: config('core.basicInformation.shippingPaymentInfoPage') })
+                            })|raw }}
+						{% endif %}
+					</span>
+				{% endif %}
+			{% endblock %}
+		</div>
+	{% endblock %}
+{% endblock %}

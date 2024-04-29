@@ -1,0 +1,27 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+
+{% block layout_header %}
+	{% block layout_header_navigation %}
+		<div class="row align-items-center header-row">
+
+            {{ block('layout_header_logo')}}
+
+            {{ block('layout_header_search')}}
+
+			{% block layout_header_actions %}
+				<div class="col-12 order-1 col-sm-auto order-sm-2 header-actions-col">
+					<div class="row g-0">
+						{{ block('layout_header_navigation_toggle') }}
+
+						{% if config('core.cart.wishlistEnabled') %}
+							{{ block('layout_header_actions_wishlist')}}
+						{% endif %}
+
+						{{ block('layout_header_actions_account')}}
+						{{ block('layout_header_actions_cart')}}
+					</div>
+				</div>
+			{% endblock %}
+		</div>
+	{% endblock %}
+{% endblock %}
