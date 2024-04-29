@@ -1,0 +1,28 @@
+{% block layout_header_actions_service_widget %}
+	{% if position is empty %}
+		{% set position = 'top-bar' %}
+	{% endif %}
+	{% if page.header.serviceMenu.count > 1 %}
+		<button class="btn top-bar-nav-btn" type="button" id="serviceDropdown-{{ position }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			{% block layout_header_actions_service_widget_dropdown_toggle_name %}
+				<span class="top-bar-nav-text">{{ 'header.service'|trans|sw_sanitize }}</span>
+				<img src="{{ asset('bundles/alvitheme/arrowdown.svg', 'asset') }}">
+			{% endblock %}
+		</button>
+		{% block layout_header_actions_service_widget_form_items %}
+			<div class="top-bar-list dropdown-menu dropdown-menu-end" aria-labelledby="serviceDropdown-{{ position }}">
+				{% for serviceMenuItem in page.header.serviceMenu %}
+					{% block layout_header_actions_service_widget_form_items_element %}
+						<div class="top-bar-list-item dropdown-item" title="{{ serviceMenuItem.translated.name }}">
+							{% block layout_header_actions_service_widget_form_items_element_label %}
+								<a class="footer-service-menu-link" href="{{ category_url(serviceMenuItem) }}" {% if category_linknewtab(serviceMenuItem) %} target="_blank" {% endif %} title="{{ serviceMenuItem.translated.name }}">
+									{{ serviceMenuItem.translated.name }}
+								</a>
+							{% endblock %}
+						</div>
+					{% endblock %}
+				{% endfor %}
+			</div>
+		{% endblock %}
+	{% endif %}
+{% endblock %}

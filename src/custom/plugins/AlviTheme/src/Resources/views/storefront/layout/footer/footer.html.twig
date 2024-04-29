@@ -29,8 +29,10 @@
 						</div>
 					{% endblock %}
 					
+					{% sw_include '@Storefront/storefront/layout/footer/footer-service.html.twig' %}
 					{% sw_include '@Storefront/storefront/layout/footer/footer-navigation.html.twig' %}
 					
+
 					{% block layout_footer_navigation_hotline %}
 						<div class="col-md-3 d-flex flex-column gap-3 order-2 order-md-1">
 							{% block layout_footer_navigation_hotline_headline %}
@@ -42,7 +44,7 @@
 							{% block layout_footer_navigation_hotline_content %}
 								<div class="footer-contact">
 									<div class="footer-column-content-inner">
-                    {{ 'footer.contactAddress'|trans|sw_sanitize }}
+										{{ 'footer.contactAddress'|trans|sw_sanitize }}
 									</div>
 									<div class="footer-contact-form">
 										{{ 'footer.serviceContactText'|trans({
@@ -114,5 +116,3 @@
 		</div>
 	{% endblock %}
 {% endblock %}
-
-

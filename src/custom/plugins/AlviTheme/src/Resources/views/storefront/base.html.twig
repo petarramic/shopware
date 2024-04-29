@@ -1,0 +1,10 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_header_inner %}
+    <div class="custom-top-bar d-none d-lg-block">
+        {% sw_include '@Storefront/storefront/layout/header/top-bar.html.twig' %}
+    </div>
+	<div class="container">
+		{% sw_include '@Storefront/storefront/layout/header/header.html.twig' %}
+	</div>
+{% endblock %}

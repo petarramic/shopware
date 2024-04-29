@@ -105,3 +105,37 @@
   width: 12px;
   font-size: small;
 }
+
+.custom-top-bar{
+    background-color: $secondary;
+    height: 32px;
+    font-family: $display-font-family;
+    font-size: 0.85rem;
+    font-weight: 300;
+    .top-bar-nav-btn.btn{
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    .top-bar-nav{
+        justify-content: space-between;
+        align-items: center;
+    }
+    .top-bar-nav-item{
+        margin-right: 0;
+    }
+}
+
+.header-row {
+    padding: $spacer-md 0;
+}
+
+.footer-service-menu-item{
+    font-weight: 400;
+    .footer-service-menu-link{
+        padding: 0;
+    }
+}

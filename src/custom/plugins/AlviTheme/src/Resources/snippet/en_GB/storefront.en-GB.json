@@ -1,13 +1,22 @@
 {
-    "footer": {
-      "contactHeadline": "Contact",
-      "paymentHeadline": "Payments",
-      "socialMediaHeadline": "Social Media",
-      "newsletterSubscribe": "Subscribe",
-      "contactAddress": "<div>ALVI GMBH</div><div>Pfennigbreite 44</div><div>DE-37671 Höxter</div>",
-      "serviceContactText": "webshop@alvi.de",
-      "copyrightInfo": "ALVI®",
-      "excludeVatText": "All prices exclude VAT and shipping costs and, if applicable, cash on delivery fees, unless otherwise stated",
-      "includeVatText": "All prices include VAT and shipping costs and, if applicable, cash on delivery fees, unless otherwise stated"
-    }
+  "header": {
+    "freeShipping": "Free shipping",
+    "fastDelivery": "Fast Delivery",
+    "freeReturn": "Free returns (30 days)",
+    "magazine": "Magazine",
+    "service": "Service",
+    "contact": "Contact"
+  },
+  "footer": {
+    "contactHeadline": "Contact",
+    "paymentHeadline": "Payments",
+    "socialMediaHeadline": "Social Media",
+    "serviceHeadline": "Service",
+    "newsletterSubscribe": "Subscribe",
+    "contactAddress": "<div>ALVI GMBH</div><div>Pfennigbreite 44</div><div>DE-37671 Höxter</div>",
+    "serviceContactText": "webshop@alvi.de",
+    "copyrightInfo": "ALVI®",
+    "excludeVatText": "All prices exclude VAT and shipping costs and, if applicable, cash on delivery fees, unless otherwise stated",
+    "includeVatText": "All prices include VAT and shipping costs and, if applicable, cash on delivery fees, unless otherwise stated"
   }
+}
